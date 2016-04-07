@@ -1,6 +1,6 @@
 {
-  "name": "porftolio-mathew",
-  "description": "A curated list of applications and websites built by Michael D. Mathew",
+  "name": "melissa-portfolio",
+  "description": "A little piece of the internet devoted to thoughts about the school library.",
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m2mathew/portfolio-site.git"
+    "url": "git+https://github.com/m2mathew/melissa-portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/m2mathew/portfolio-site/issues"
+    "url": "https://github.com/m2mathew/melissa-portfolio/issues"
   },
-  "homepage": "https://github.com/m2mathew/portfolio-site#readme"
+  "homepage": "https://github.com/m2mathew/melissa-portfolio#readme"
 }
