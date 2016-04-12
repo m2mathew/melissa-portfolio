@@ -1,15 +1,38 @@
-'use strict'
+/**
+ *
+ *  Web Starter Kit
+ *  Copyright 2015 Google Inc. All rights reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License
+ *
+ */
 
-// dependencies
-var path = require('path');
-var gulp = require('gulp');
-var del = require('del');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
-var swPrecache = require('sw-precache');
-var gulpLoadPlugins = require('gulp-load-plugins');
-var pagespeed = require('psi/lib/output');
-var pkg = require('./package.json');
+'use strict';
+
+// This gulpfile makes use of new JavaScript features.
+// Babel handles this without us having to do anything. It just works.
+// You can read more about the new JavaScript features here:
+// https://babeljs.io/docs/learn-es2015/
+
+import path from 'path';
+import gulp from 'gulp';
+import del from 'del';
+import runSequence from 'run-sequence';
+import browserSync from 'browser-sync';
+import swPrecache from 'sw-precache';
+import gulpLoadPlugins from 'gulp-load-plugins';
+import {output as pagespeed} from 'psi';
+import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -59,7 +82,7 @@ gulp.task('styles', () => {
     'bb >= 10'
   ];
 
-// For best performance, don't add Sass partials to `gulp.src`
+  // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'app/styles/**/*.scss',
     'app/styles/**/*.css'
@@ -86,7 +109,7 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './scripts/main.js'
+      './app/scripts/main.js'
       // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))
@@ -190,7 +213,7 @@ gulp.task('default', ['clean'], cb =>
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('mikemathew.com', {
+  pagespeed('example.com', {
     strategy: 'mobile'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
